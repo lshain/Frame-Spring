@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-init-method="" default-destroy-method="">
+
+	<!-- just pojo -->
+	<bean id="Attr" class="com.lshain.example.pojo.Attr">
+		<property name="a" value="A" />
+		<property name="b" value="B" />
+	</bean>
+
+	<bean id="Attr1" class="com.lshain.example.pojo.Attr" scope="prototype">
+		<property name="a" value="A1" />
+		<property name="b" value="B1" />
+	</bean>
+
+	<bean id="Attr2" class="com.lshain.example.pojo.Attr">
+		<property name="a" value="A2" />
+		<property name="b" value="B2" />
+	</bean>
+
+	<!-- String 属性注入测试 scope="prototype" 让每次实例化都实例化不同的对象 -->
+	<bean id="Pojo" class="com.lshain.example.pojo.Pojo" scope="prototype"
+		init-method="initBefor" destroy-method="destoryAfter">
+		<!-- 测试构造函数注入 -->
+		<constructor-arg value="1" />
+
+		<!-- 一般注入外部bean， <constructor-arg ref="Attr" /> 这里测试下内部bean -->
+
+		<constructor-arg>
+			<bean class="com.lshain.example.pojo.Attr">
+				<property name="a" value="cA" />
+				<property name="b" value="cB" />
+			</bean>
+		</constructor-arg>
+
+		<!-- int值注入 -->
+		<property name="intValue" value="20" />
+
+		<!-- String值注入 -->
+		<property name="stringValue" value="stringValue" />
+
+		<!-- ArrayList< String > -->
+		<property name="as">
+			<!-- list装配数组，允许重复值，set装配的话，不允许 -->
+			<list>
+				<value>"1"</value>
+				<value>"2"</value>
+				<value>"3"</value>
+			</list>
+		</property>
+
+		<!-- ArrayList< Attr > -->
+		<property name="aa">
+			<!-- list装配数组，允许重复值，set装配的话，不允许 -->
+			<list>
+				<ref bean="Attr1" />
+				<ref bean="Attr2" />
+			</list>
+		</property>
+
+		<!-- Properties -->
+		<property name="properties">
+			<props>
+				<prop key="KEY1">VALUE1</prop>
+				<prop key="KEY2">VALUE2</prop>
+				<prop key="KEY3">VALUE3</prop>
+			</props>
+		</property>
+
+		<!-- HashSet< Attr > -->
+		<property name="sa">
+			<!-- list装配数组，允许重复值，set装配的话，不允许 -->
+			<set>
+				<ref bean="Attr1" />
+				<ref bean="Attr2" />
+			</set>
+		</property>
+
+		<!-- HashMap< String, Attr > -->
+		<property name="hmsa">
+			<map>
+				<entry key="KEY1" value-ref="Attr1" />
+				<entry key="KEY2" value-ref="Attr2" />
+			</map>
+		</property>
+
+		<!-- Attr -->
+		<property name="attr" ref="Attr" />
+
+		<!-- 测试内部bean引用 -->
+		<property name="innerattr">
+			<bean class="com.lshain.example.pojo.Attr">
+				<property name="a" value="innerA" />
+				<property name="b" value="innerB" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 单例测试 -->
+	<bean id="PojoSingle" class="com.lshain.example.pojo.Pojo"
+		factory-method="getInstance" />
+
+</beans>
