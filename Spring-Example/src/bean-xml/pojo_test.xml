@@ -7,7 +7,9 @@
 	<!-- just pojo -->
 	<bean id="Attr" class="com.lshain.example.pojo.Attr">
 		<property name="a" value="A" />
-		<property name="b" value="B" />
+		<property name="b">
+			<null />
+		</property>
 	</bean>
 
 	<bean id="Attr1" class="com.lshain.example.pojo.Attr" scope="prototype">

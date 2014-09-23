@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-init-method="" default-destroy-method="">
+
+	<bean name="Constant" class="com.lshain.example.spel.Constant" />
+
+	<bean name="Attr" class="com.lshain.example.spel.Attr">
+		<property name="a" value="#{Constant.B}" />
+	</bean>
+
+	<bean name="Module" class="com.lshain.example.spel.Module" scope="prototype">
+		<!-- spel表达式支持 -->
+		<!-- 1. 算数运算: +(运算或者字符串相加), -, *, /, %, ^(乘方) -->
+		<!-- 2. 逻辑比较: <, >, ==, <=, >=, lt, gt, eq, le, ge, -->
+		<!-- 3. 逻辑运算: and, or, not, !(取反) -->
+		<!-- 4. 条件表达式: ?: 运算符。 注意?:表达式同Java， 而且还有扩展， a?:b, a为真这个表达式值就为a. -->
+		<!-- 5. 正则表达式: matches 运算符。eg: "str" matches 'reg', str符合reg表达式, 值就为ture, 
+			否则为false -->
+		<property name="aInt" value="#{Attr.a + Constant.C + 1}" />
+
+		<property name="bString" value="#{'hahaha'}" />
+		<property name="cBoolean" value="#{true}" />
+
+		<!-- T()运算符可以调用类的静态方法和常量， ?.代替.运算符，可以在?左边表达式为null时，不调用后面的函数。 -->
+		<property name="dString"
+			value="#{T(com.lshain.example.spel.Attr).getString()?.toUpperCase()}" />
+		<property name="eDouble" value="#{T(java.lang.Math).PI}" />
+		<!-- <property name="eDouble" value="#{T(java.lang.Math).random()}" /> -->
+	</bean>
+	
+</beans>
