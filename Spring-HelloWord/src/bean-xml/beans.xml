@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+	<bean id="userDAOImpl" class="com.lshain.dao.impl.UserDaoImpl" />
+
+	<bean id="User" class="com.lshain.model.User">
+		<property name="userName" value="lshain" />
+		<property name="passWord" value="password" />
+	</bean>
+
+	<bean id="UserService" class="com.lshain.service.UserService">
+		<property name="userDAO" ref="userDAOImpl" />
+	</bean>
+
+</beans>
