@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd"
 	default-init-method="" default-destroy-method="">
 
 	<bean name="Constant" class="com.lshain.example.spel.Constant" />
@@ -16,8 +17,8 @@
 		<!-- 2. 逻辑比较: <, >, ==, <=, >=, lt, gt, eq, le, ge, -->
 		<!-- 3. 逻辑运算: and, or, not, !(取反) -->
 		<!-- 4. 条件表达式: ?: 运算符。 注意?:表达式同Java， 而且还有扩展， a?:b, a为真这个表达式值就为a. -->
-		<!-- 5. 正则表达式: matches 运算符。eg: "str" matches 'reg', str符合reg表达式, 值就为ture, 
-			否则为false -->
+		<!-- 5. 正则表达式: matches 运算符。eg: #{ "str" matches '[a-z]+', str符合reg表达式, 
+			值就为ture, 否则为false -->
 		<property name="aInt" value="#{Attr.a + Constant.C + 1}" />
 
 		<property name="bString" value="#{'hahaha'}" />
@@ -29,5 +30,58 @@
 		<property name="eDouble" value="#{T(java.lang.Math).PI}" />
 		<!-- <property name="eDouble" value="#{T(java.lang.Math).random()}" /> -->
 	</bean>
+
+	<!-- 定义一个list集合 -->
+	<util:list id="AttrList">
+		<bean name="Attr1" class="com.lshain.example.spel.Attr">
+			<property name="a" value="#{Constant.A}" />
+		</bean>
+		<bean name="Attr2" class="com.lshain.example.spel.Attr">
+			<property name="a" value="#{Constant.B}" />
+		</bean>
+		<bean name="Attr3" class="com.lshain.example.spel.Attr">
+			<property name="a" value="#{Constant.C}" />
+		</bean>
+		<bean name="Attr4" class="com.lshain.example.spel.Attr">
+			<property name="a" value="#{Constant.D}" />
+		</bean>
+		<bean name="Attr5" class="com.lshain.example.spel.Attr">
+			<property name="a" value="#{Constant.E}" />
+		</bean>
+	</util:list>
+
+	<!-- 使用list -->
+	<bean name="Module1" class="com.lshain.example.spel.Module" scope="prototype">
+		<!-- 使用集合特定值初始化属性 -->
+		<!-- <property name="fAttr" value="#{AttrList[0]}" /> -->
+		<!-- <property name="fAttr" value="#{AttrList['Attr1']}" /> -->
+		<!-- 也可以随机使用一个 -->
+		<property name="fAttr"
+			value="#{AttrList[T(java.lang.Math).random()*AttrList.size()]}" />
+	</bean>
+
+	<!-- 定义一个properties，可以读取配置文件 -->
+	<util:properties id="demo_properties"
+		location="classpath:bean-properties/demo.properties" />
+
+	<!-- 使用properties -->
+	<bean name="Module2" class="com.lshain.example.spel.Module" scope="prototype">
+		<property name="bString" value="#{demo_properties['Demo.Test']}" />
+	</bean>
+
+	<!-- 测试systemEnvironment(系统环境变量), systemProperties(java -D参数指定的变量eg java 
+		-Dapp.home=/home/lshain/spring) -->
+	<bean name="Module3" class="com.lshain.example.spel.Module" scope="prototype">
+		<property name="bString" value="#{systemEnvironment['JAVA_HOME']}" />
+		<!-- <property name="bString" value="#{systemEnvironment['app.home']}" 
+			/> -->
+	</bean>
+
+	<!-- []运算符，获取字符串的指定位置字符 -->
+	<bean name="Module4" class="com.lshain.example.spel.Module" scope="prototype">
+		<property name="gChar" value="#{'this is a demo!'[5]}" />
+	</bean>
+
+	<!-- 集合抽取，过滤运算符 .?[], .^[], .$[] -->
 	
 </beans>

@@ -1,5 +1,7 @@
 package com.lshain.example.spel;
 
+import java.util.ArrayList;
+
 public class Module
 {
 	private int aInt = 0;
@@ -7,6 +9,12 @@ public class Module
 	private boolean cBoolean;
 	private String dString;
 	private double eDouble;
+	private Attr fAttr;
+	private char gChar;
+	
+	private Attr hAttr;
+	private Attr iAttr;
+	private ArrayList< Attr > jAttrs;
 	
 	public int getaInt( )
 	{
@@ -41,7 +49,7 @@ public class Module
 	@Override
 	public String toString( )
 	{
-		return " [ " + aInt + " , " + bString + " , " + cBoolean + " , " + dString + " , " + eDouble + " ] ";
+		return " [ " + aInt + " , " + bString + " , " + cBoolean + " , " + dString + " , " + eDouble + " , " + ( fAttr != null ? fAttr.toString( ) : "fAttr == null" ) + " , " + gChar + " ] ";
 	}
 	
 	public String getdString( )
@@ -62,5 +70,55 @@ public class Module
 	public void seteDouble( double eDouble )
 	{
 		this.eDouble = eDouble;
+	}
+	
+	public Attr getfAttr( )
+	{
+		return fAttr;
+	}
+	
+	public void setfAttr( Attr fAttr )
+	{
+		this.fAttr = fAttr;
+	}
+	
+	public char getgChar( )
+	{
+		return gChar;
+	}
+	
+	public void setgChar( char gChar )
+	{
+		this.gChar = gChar;
+	}
+	
+	public Attr gethAttr( )
+	{
+		return hAttr;
+	}
+	
+	public void sethAttr( Attr hAttr )
+	{
+		this.hAttr = hAttr;
+	}
+	
+	public Attr getiAttr( )
+	{
+		return iAttr;
+	}
+	
+	public void setiAttr( Attr iAttr )
+	{
+		this.iAttr = iAttr;
+	}
+	
+	public ArrayList< Attr > getjAttrs( )
+	{
+		return jAttrs;
+	}
+	
+	public void setjAttrs( ArrayList< Attr > jAttrs )
+	{
+		this.jAttrs = jAttrs;
 	}
 }

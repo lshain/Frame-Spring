@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/classmate-1.0.0.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/hibernate-validator-5.0.3.Final.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/jackson-annotations-2.3.4.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/jackson-core-2.3.4.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/jackson-databind-2.3.4.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/jboss-logging-3.1.1.GA.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/jcl-over-slf4j-1.7.7.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/jul-to-slf4j-1.7.7.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/log4j-over-slf4j-1.7.7.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/logback-classic-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/logback-core-1.1.2.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/snakeyaml-1.13.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-aop-4.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-beans-4.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-boot-1.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-boot-autoconfigure-1.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-boot-starter-1.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-boot-starter-logging-1.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-boot-starter-tomcat-1.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-boot-starter-web-1.1.6.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-context-4.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-core-4.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-expression-4.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-web-4.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/spring-webmvc-4.0.7.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/tomcat-embed-core-7.0.55.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/tomcat-embed-el-7.0.55.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/tomcat-embed-logging-juli-7.0.55.jar"/>
+	<classpathentry kind="lib" path="/home/oem/github/Frame-Spring/Spring-RESTful-Webservice/lib/validation-api-1.1.0.Final.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

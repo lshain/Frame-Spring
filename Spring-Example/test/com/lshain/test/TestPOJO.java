@@ -41,8 +41,43 @@ public class TestPOJO
 		debug( module.toString( ) );
 	}
 	
+	public static void testSpEL( )
+	{
+		ApplicationContext ac = new ClassPathXmlApplicationContext( "bean-xml/module_test.xml" );
+		
+		Module module = ( Module ) ( ( BeanFactory ) ac ).getBean( "Module1" );
+		
+		debug( module.toString( ) );
+		
+		module = ( Module ) ( ( BeanFactory ) ac ).getBean( "Module4" );
+		
+		debug( module.toString( ) );
+	}
+	
+	public static void testSpringUtil( )
+	{
+		ApplicationContext ac = new ClassPathXmlApplicationContext( "bean-xml/module_test.xml" );
+		
+		Module module1 = ( Module ) ( ( BeanFactory ) ac ).getBean( "Module1" );
+		
+		debug( module1.toString( ) );
+		
+		Module module2 = ( Module ) ( ( BeanFactory ) ac ).getBean( "Module2" );
+		
+		debug( module2.toString( ) );
+	}
+	
+	public static void testSystemPorperty( )
+	{
+		ApplicationContext ac = new ClassPathXmlApplicationContext( "bean-xml/module_test.xml" );
+		
+		Module module = ( Module ) ( ( BeanFactory ) ac ).getBean( "Module3" );
+		
+		debug( module.toString( ) );
+	}
+	
 	public static void main( String[] args )
 	{
-		testModule( );
+		testSpEL( );
 	}
 }

@@ -20,4 +20,10 @@ public class Attr
 	{
 		return string;
 	}
+	
+	@Override
+	public String toString( )
+	{
+		return "Attr:[" + a + "]";
+	}
 }
